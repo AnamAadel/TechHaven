@@ -1,0 +1,29 @@
+{
+    "brands": [
+      {
+        "name": "Apple",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEKlz99aTgDUttQeCeVFIaWPPl7D0vgYoDTQ&usqp=CAU"
+      },
+      {
+        "name": "Samsung",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYa6ezfAgODBs7f32Ym4H73pAEkgT2trdSJA&usqp=CAU"
+      },
+      {
+        "name": "Sony",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXg28msxohxn3-U-WRZTxmsD8RB9ApS6elwA&usqp=CAU"
+      },
+      {
+        "name": "Google",
+        "logo": "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
+      },
+      {
+        "name": "Intel",
+        "logo": "https://w7.pngwing.com/pngs/906/1023/png-transparent-intel-logo-fujitsu-business-technology-intel-blue-text-trademark-thumbnail.png"
+      },
+      {
+        "name": "Walton",
+        "logo": "https://w7.pngwing.com/pngs/84/331/png-transparent-badda-thana-walton-group-walton-motors-kaliakair-upazila-job-walton-group-blue-text-logo-thumbnail.png"
+      }
+    ]
+  }
+  

@@ -1,21 +1,78 @@
+import React, { useEffect, useRef, useState } from 'react';
+// Import Swiper React components
+import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import { Link } from 'react-scroll';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+// import required modules
+
+
 
 function Hero() {
+  const [heroProduct, setHeroProduct] = useState();
+  const [imgIndex, setImgIndex] = useState(0);
+  const bannerImg = useRef(null);
+
+  const handleHeroImage = (swiper) => {
+    console.log()
+    setImgIndex(swiper.activeIndex)
+    bannerImg.current.classList.add("fadeOut")
+    setTimeout(()=>{bannerImg.current.classList.remove("fadeOut")} ,1100)
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch("heroitem.json");
+        const data = await res.json();
+        console.log(data.products)
+        setHeroProduct(data.products);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, [])
   return (
-      <div className="hero min-h-screen relative bg-primary">
-      <div className="w-full h-full absolute top-0 left-0 overflow-hidden">
-        <img src="/mosque.png" alt="" className='w-full h-1/2 absolute bottom-0 left-0 object-cover sm:object-fill' />
-        <img src="/lighter.png" alt="" className='w-[300px] md:w-[500px] lg:w-[600px] absolute top-0 -left-20 sm:-left-12 lg:-left-32' />
-        <img src="/text.png" alt="" className='w-[300px] md:w-[500px] lg:w-[600px] absolute top-0 -right-16 sm:-right-12 lg:-right-4' />
-        <img src="/leaves.png" alt="" className='w-[300px] md:w-[500px] lg:w-[600px] absolute bottom-0 -left-72' />
+    <div className="min-h-[70vh] relative ">
+      <div className="flex justify-center gap-4">
+        <div className="w-full md:w-1/2 p-8 space-y-4 bg-[#abc0ce]">
+          <h1 className="text-5xl font-bold text-color">{heroProduct?.length > 0 && heroProduct[imgIndex].name}</h1>
+          <p className="font-medium">{heroProduct?.length > 0 && heroProduct[imgIndex].short_description}</p>
+          <p className="font-medium text-2xl"><b>Price: </b>{heroProduct?.length > 0 && heroProduct[imgIndex].price}</p>
+          <Link className='btn btn-success-content'>Buy now</Link>
+        </div>
+        <Swiper
+          slidesPerView={5}
+          spaceBetween={30}
+          direction={'vertical'}
+
+          pagination={{
+            clickable: true,
+          }}
+          freeMode={true}
+          navigation={true}
+          centeredSlides={true}
+          autoplay={{ disableOnInteraction: false }}
+          modules={[FreeMode, Autoplay, Navigation]}
+          onSlideChange={(swiper) => handleHeroImage(swiper)}
+          className="banner cursor-grab ml-6 mr-6 shadow-xl bg-[#abc0ce6b] "
+        >
+          {heroProduct?.length > 0 && heroProduct.map((item, ind) => (
+            <SwiperSlide key={item.id}><img src={item.image_url} alt="" className={imgIndex === ind ? `opacity-100` : `opacity-20`} /></SwiperSlide>
+
+          ))}
+        </Swiper>
+
+        <div className="card bg-base-100 w-1/2 rounded-none">
+          <figure><img src={heroProduct?.length > 0 && heroProduct[imgIndex].image_url} alt="Shoes" className='h-[70vh] object-cover' ref={bannerImg} /></figure>
+        </div>
       </div>
-          <div className="hero-content text-center">
-              <div className="max-w-md -mt-44">
-                  <h1 className="text-3xl font-bold">Elevating Moments, Inspiring Memories</h1>
-                  <p className="py-6 font-medium">Welcome to <span className='font-extrabold'>Elegance & Essence Events</span>, where we specialize in crafting unforgettable Islamic events that reflect your unique style and culture. From weddings to conferences, we bring your visions to life, ensuring every detail celebrates tradition and artistry. Let us transform your moments into cherished memories</p>
-                  
-              </div>
-          </div>
-      </div>
+    </div>
   )
 }
 
