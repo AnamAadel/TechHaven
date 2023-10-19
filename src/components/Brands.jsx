@@ -5,28 +5,30 @@ function Brands() {
     const [brandLogo, setBrandLogo] = useState([])
     useEffect(() => {
         async function fetchData() {
-          try {
-            const res = await fetch("brandsData.json");
-            const data = await res.json();
-            console.log(data.products)
-            setBrandLogo(data.brands);
-          } catch (error) {
-            console.log(error)
-          }
+            try {
+                const res = await fetch("brandsData.json");
+                const data = await res.json();
+                console.log(data.products)
+                setBrandLogo(data.brands);
+            } catch (error) {
+                console.log(error)
+            }
         }
         fetchData()
-      }, [])
-  return (
-    <Marquee>
-        {brandLogo.length > 0 && brandLogo.map((item, ind)=> (
-            <div key={ind}>
-                <img src={item.logo} alt="Logo" />
-                <h3>{item.name}</h3>
-            </div>
+    }, [])
+    return (
+        <div className="container mx-auto py-8">
+            <Marquee>
+                    {brandLogo.length > 0 && brandLogo.map((item, ind) => (
+                        <div key={ind} className='w-52 justify-between flex flex-col gap-4 items-center'>
+                            <img src={item.logo} alt="Logo" className='h-[120px]' />
+                            <h3 className='font-bold text-2xl'>{item.name}</h3>
+                        </div>
 
-        ))}
-    </Marquee>
-  )
+                    ))}
+            </Marquee>
+        </div>
+    )
 }
 
 export default Brands

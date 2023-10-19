@@ -21,3 +21,8 @@ function Root() {
 }
 
 export default Root
+
+//   {
+    //     "name": "Smartwatch",
+    //     "icon": "FaWatchmanMonogram"
+    //   },
