@@ -6,7 +6,7 @@ function Products() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("brandproducts.json");
+                const res = await fetch("http://localhost:5000/products/all");
                 const data = await res.json();
                 console.log(data.products)
                 setProducts(data.products);

@@ -14,7 +14,7 @@ function Brands() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("brandsData.json");
+                const res = await fetch("http://localhost:5000/brands/all");
                 const data = await res.json();
                 console.log(data.products)
                 setBrandLogo(data.brands);
