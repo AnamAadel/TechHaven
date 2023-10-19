@@ -11,6 +11,7 @@ import Purchases from "../pages/Purchases";
 import Register from "../pages/Register";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
+import BrandProductPage from "../pages/BrandProductPage";
 
 
  const router = createBrowserRouter([
@@ -47,6 +48,10 @@ import PrivateRoute from "./PrivateRoute";
       {
         path: "/login",
         element: <PablicRoute> <Login /></PablicRoute>,
+      },
+      {
+        path: "/brand_products/:id",
+        element: <BrandProductPage />,
       },
     ]
   },

@@ -50,12 +50,10 @@ function Hero() {
           slidesPerView={5}
           spaceBetween={30}
           direction={'vertical'}
-
           pagination={{
             clickable: true,
           }}
           freeMode={true}
-          navigation={true}
           centeredSlides={true}
           autoplay={{ disableOnInteraction: false }}
           modules={[FreeMode, Autoplay, Navigation]}
