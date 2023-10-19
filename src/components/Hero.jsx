@@ -27,10 +27,10 @@ function Hero() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("heroitem.json");
+        const res = await fetch("http://localhost:5000/new_product/all");
         const data = await res.json();
-        console.log(data.products)
-        setHeroProduct(data.products);
+        console.log(data)
+        setHeroProduct(data);
       } catch (error) {
         console.log(error)
       }

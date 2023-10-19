@@ -7,10 +7,10 @@ function Facilities() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("facilities.json");
+                const res = await fetch("http://localhost:5000/facilities/all");
                 const data = await res.json();
-                console.log(data.facilities)
-                setCategoryData(data.facilities);
+                console.log(data)
+                setCategoryData(data);
             } catch (error) {
                 console.log(error)
             }

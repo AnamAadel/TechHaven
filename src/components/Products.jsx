@@ -8,8 +8,8 @@ function Products() {
             try {
                 const res = await fetch("http://localhost:5000/products/all");
                 const data = await res.json();
-                console.log(data.products)
-                setProducts(data.products);
+                console.log(data)
+                setProducts(data);
             } catch (error) {
                 console.log(error)
             }

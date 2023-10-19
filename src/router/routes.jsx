@@ -52,6 +52,7 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/brand_products/:id",
+        loader: ({params})=> fetch(`http://localhost:5000/brands/${params.id}`) ,
         element: <BrandProductPage />,
       },
       {

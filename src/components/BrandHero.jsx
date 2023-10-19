@@ -18,6 +18,7 @@ const BrandHero = ({banners}) => {
       navigation
       loop
       pagination={{clickable: true}}
+      className='bg-slate-200'
     >
       {banners.map((link, ind) => (
         <SwiperSlide key={ind}>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Marquee from "react-fast-marquee";
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-scroll';
 
 function Brands() {
     const [brandLogo, setBrandLogo] = useState([])
@@ -16,8 +15,8 @@ function Brands() {
             try {
                 const res = await fetch("http://localhost:5000/brands/all");
                 const data = await res.json();
-                console.log(data.products)
-                setBrandLogo(data.brands);
+                console.log(data)
+                setBrandLogo(data);
             } catch (error) {
                 console.log(error)
             }
@@ -28,10 +27,10 @@ function Brands() {
         <div className="container mx-auto py-8">
             <Marquee>
                     {brandLogo.length > 0 && brandLogo.map((item, ind) => (
-                        <Link to={`/${item.name}`} onClick={()=> handleNavigate(item.name)} key={ind} className='w-52 justify-between flex flex-col gap-4 items-center cursor-pointer'>
+                        <div onClick={()=> handleNavigate(item.name)} key={ind} className='w-52 justify-between flex flex-col gap-4 items-center cursor-pointer'>
                             <img src={item.logo} alt="Logo" className='h-[120px]' />
                             <h3 className='font-bold text-2xl'>{item.name}</h3>
-                        </Link>
+                        </div>
 
                     ))}
             </Marquee>
