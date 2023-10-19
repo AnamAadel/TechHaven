@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function BrandCard() {
     return (
@@ -11,7 +12,7 @@ function BrandCard() {
                     <h2 className="card-title">New movie is released!</h2>
                     <p>Click the button to watch on Jetflix app.</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Watch</button>
+                        <Link to={`/products/detail/2`} className="btn btn-primary">Detail</Link>
                     </div>
                 </div>
             </div>

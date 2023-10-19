@@ -4,14 +4,15 @@ import {
 import Root from "../Root";
 import AddProduct from "../pages/AddProduct";
 import Blogs from "../pages/Blogs";
+import BrandProductPage from "../pages/BrandProductPage";
 import Details from "../pages/Details";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import ProductDetails from "../pages/ProductDetails";
 import Purchases from "../pages/Purchases";
 import Register from "../pages/Register";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
-import BrandProductPage from "../pages/BrandProductPage";
 
 
  const router = createBrowserRouter([
@@ -52,6 +53,10 @@ import BrandProductPage from "../pages/BrandProductPage";
       {
         path: "/brand_products/:id",
         element: <BrandProductPage />,
+      },
+      {
+        path: "/products/detail/:id",
+        element: <ProductDetails />,
       },
     ]
   },
