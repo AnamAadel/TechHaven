@@ -50,16 +50,17 @@ function Navbar() {
   }, [])
 
   return (
-    <div className="navbar rounded-none relative top-0 left-0 z-40 bg-primary" ref={navbar} >
+    <div className="navbar rounded-none relative top-0 left-0 z-40 bg-neutral text-white" ref={navbar} >
       <div className="flex-1 " >
-        <Link to="/" className="btn btn-ghost normal-case text-xl bg-dark"><img src={logo} alt="Logo" className='h-full' /></Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl "><img src={logo} alt="Logo" className='h-full' /></Link>
       </div>
       <div className="flex-none ">
-        <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >
+        <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-neutral font-bold`} >
           <li onClick={handleMenu}><NavLink to={`/`}>Home</NavLink></li>
           <li onClick={handleMenu}><NavLink to={`/blogs/1`}>Blogs</NavLink></li>
           <li><NavLink to="/purchases">Purchase Details</NavLink></li>
           <li onClick={handleMenu}><NavLink to={`/contact`}>Contact Us</NavLink></li>
+          <li onClick={handleMenu}><NavLink to={`/add_product`}>Add Product</NavLink></li>
         </ul>
 
 

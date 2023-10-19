@@ -40,7 +40,7 @@ function Hero() {
   return (
     <div className="min-h-[70vh] relative ">
       <div className="flex justify-center gap-4">
-        <div className="w-full md:w-1/2 p-8 space-y-4 bg-[#abc0ce]">
+        <div className="w-full md:w-1/2 p-8 space-y-4 bg-primary">
           <h1 className="text-5xl font-bold text-color">{heroProduct?.length > 0 && heroProduct[imgIndex].name}</h1>
           <p className="font-medium">{heroProduct?.length > 0 && heroProduct[imgIndex].short_description}</p>
           <p className="font-medium text-2xl"><b>Price: </b>{heroProduct?.length > 0 && heroProduct[imgIndex].price}</p>

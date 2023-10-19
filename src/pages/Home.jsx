@@ -1,13 +1,15 @@
 import Brands from '../components/Brands'
+import Facilities from '../components/Facilities'
 import Hero from '../components/Hero'
-import ProductCategories from '../components/ProductCategories'
+import Products from '../components/Products'
 
 function Home() {
   return (
     <div className='' >
         <Hero />
         <Brands />
-        <ProductCategories />
+        <Products />
+        <Facilities />
         
         {/* <Services /> */}
         {/* <Testimonials /> */}

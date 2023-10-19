@@ -2,8 +2,8 @@ import {
   createBrowserRouter
 } from "react-router-dom";
 import Root from "../Root";
+import AddProduct from "../pages/AddProduct";
 import Blogs from "../pages/Blogs";
-import ContactUs from "../pages/ContactUs";
 import Details from "../pages/Details";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -37,8 +37,8 @@ import PrivateRoute from "./PrivateRoute";
         element: <PrivateRoute><Blogs /></PrivateRoute> ,
       },
       {
-        path: "/contact",
-        element: <PrivateRoute><ContactUs /></PrivateRoute> ,
+        path: "/add_product",
+        element: <AddProduct />,
       },
       {
         path: "/register",

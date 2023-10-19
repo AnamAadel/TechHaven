@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-function ProductCategories() {
+function Facilities() {
     const [categoryData, setCategoryData] = useState([])
 
     useEffect(() => {
@@ -33,4 +33,4 @@ function ProductCategories() {
     );
 }
 
-export default ProductCategories
+export default Facilities
