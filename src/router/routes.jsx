@@ -11,6 +11,7 @@ import Login from "../pages/Login";
 import ProductDetails from "../pages/ProductDetails";
 import Purchases from "../pages/Purchases";
 import Register from "../pages/Register";
+import UpdateProduct from "../pages/UpdateProduct";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
 
@@ -57,7 +58,13 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/products/detail/:id",
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
         element: <ProductDetails />,
+      },
+      {
+        path: "/products/update/:id",
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+        element: <UpdateProduct />,
       },
     ]
   },

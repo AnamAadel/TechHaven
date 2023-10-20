@@ -6,23 +6,22 @@ function AddProduct() {
   const handleForm = async (e)=> {
     e.preventDefault()
     const name = e.target.name.value;
-    const chef = e.target.chef.value;
-    const supplier = e.target.supplier.value;
-    const taste = e.target.taste.value;
-    const category = e.target.category.value;
-    const details = e.target.details.value;
-    const photo = e.target.photo.value;
+    const brand = e.target.brand.value;
+    const type = e.target.type.value;
+    const rating = e.target.rating.value;
+    const image = e.target.image.value;
+    const description = e.target.description.value;
     const price = e.target.price.value;
-    console.log( name,chef, supplier, taste, category, details, photo);
-    const coffee = {name,chef, supplier, taste, category, details, photo, price}
+    
+    const product = {name,brand, type, rating, image, description,  price}
 
     try {
-        const res = await fetch(`http://localhost:5000/coffees/`, {
-            method: "put",
+        const res = await fetch(`http://localhost:5000/products`, {
+            method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(coffee)
+            body: JSON.stringify(product)
         })
         const data = await res.json()
         console.log(data);
@@ -48,41 +47,38 @@ function AddProduct() {
               <label className="label">
                 <span className="label-text">Brand Name</span>
               </label>
-              <input type="text" name='chef' placeholder="Enter brand name" className="input input-bordered" required />
+              <input type="text" name='brand' placeholder="Enter brand name" className="input input-bordered" required />
             </div>
             <div className="form-control ">
               <label className="label">
-                <span className="label-text">Category</span>
+                <span className="label-text">Type</span>
               </label>
-              <select className="select select-bordered w-full"  name='category' required >
-              {categories.map((item, ind)=> (
-              <option key={ind} >{item}</option>
-              ))}
-            </select>
+              <input type="text" name='type' placeholder="Enter product type" className="input input-bordered" required />
             </div>
-            <div className="form-control ">
-              <label className="label">
-                <span className="label-text">Description</span>
-              </label>
-              <input type="text" name='description' placeholder="Write description" className="input input-bordered" required />
-            </div>
+            
             <div className="form-control ">
               <label className="label">
                 <span className="label-text">Rating</span>
               </label>
-              <input type="text" name='category' placeholder="Enter rating" className="input input-bordered" required />
+              <input type="text" name='rating' placeholder="Enter rating" className="input input-bordered" required />
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Image</span>
               </label>
-              <input type="text" name='photo' placeholder="Enter coffee url" className="input input-bordered" required />
+              <input type="text" name='image' placeholder="Enter product url" className="input input-bordered" required />
             </div>
-            <div className="form-control col-span-full">
+            <div className="form-control ">
               <label className="label">
                 <span className="label-text">Price</span>
               </label>
               <input type="number" name='price' placeholder="price" className="input input-bordered" required />
+            </div>
+            <div className="form-control col-span-full">
+              <label className="label">
+                <span className="label-text">Description</span>
+              </label>
+              <textarea placeholder="Write description" name="description" className="input input-bordered w-full min-h-16" required />
             </div>
             <div className="form-control mt-6 col-span-full">
               <button className="btn border-2 border-neutral bg-primary text-coffee" type='submit' >Add Coffee</button>

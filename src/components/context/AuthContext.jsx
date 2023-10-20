@@ -6,16 +6,16 @@ import { toast } from "react-toastify";
 import { app } from "../../firebase.config";
 const myContext = createContext(null);
 
-export const AuthContexts = ()=> {
-    return useContext(myContext);
+export const AuthContexts = () => {
+  return useContext(myContext);
 }
 
-function AuthProvider({children}) {
-    
-    const [user, setUser] = useState(null)
-    const [userPhoto, setUserPhoto] = useState(null);
-    const [userName, setUserName] = useState('');
-    const [loading, setLoading] = useState(true);
+function AuthProvider({ children }) {
+
+  const [user, setUser] = useState(null)
+  const [userPhoto, setUserPhoto] = useState(null);
+  const [userName, setUserName] = useState('');
+  const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
   const storage = getStorage(app)
   const authProviderGoogle = new GoogleAuthProvider();
@@ -23,126 +23,180 @@ function AuthProvider({children}) {
   const authProviderFacebook = new FacebookAuthProvider();
 
 
-  const createUser = (email, password, userName, file)=>{
+  const createUser = (email, password, userName, file) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password).then(result => {
-        // sendEmailVerification(auth.currentUser).then(()=> console.log("email varification send to  your email!")).catch(err => console.log(err))
+      // sendEmailVerification(auth.currentUser).then(()=> console.log("email varification send to  your email!")).catch(err => console.log(err))
 
-        const storageRef = ref(storage, `users/${result.user.uid}.jpg`);
-        
-        console.log(storageRef.fullPath)
+      const storageRef = ref(storage, `users/${result.user.uid}.jpg`);
 
-        
-        uploadBytes(storageRef, file).then((snapshot)=> {
-          
-          getDownloadURL(storageRef).then((url => {
-            const userImage = file ? url : null;
+      console.log(storageRef.fullPath)
 
-            console.log(url)
-            setUserPhoto(userImage);
-            setUserName(userName);
-            
-            updateProfile(auth.currentUser, {displayName: userName, photoURL: userImage}).then(() => {
-              console.log("profile updated!")
-              setLoading(false);
-            }).catch(error => console.log(error));
-          })).catch((err)=> console.log(err) )
-            
-          }).catch((err)=> console.log(err))
 
-        setUser(result.user)
-        console.log(result.user);
-        toast.success("User created successfully!",{
-          theme: "colored",
-          toastId: "success"
-  
+      uploadBytes(storageRef, file).then((snapshot) => {
+
+        getDownloadURL(storageRef).then((url => {
+          const userImage = file ? url : null;
+
+          console.log(url)
+          setUserPhoto(userImage);
+          setUserName(userName);
+
+          updateProfile(auth.currentUser, { displayName: userName, photoURL: userImage }).then(async () => {
+            console.log("profile updated!")
+            setLoading(false);
+
+            const user = { userName, email, userImage, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
+            try {
+              const res = await fetch("http://localhost:5000/users", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json"
+                },
+                body: JSON.stringify(user)
+              })
+              const data = await res.json()
+              console.log(data);
+            } catch (error) {
+              console.log(error)
+            }
+
+
+          }).catch(error => console.log(error));
+        })).catch((err) => console.log(err))
+
+      }).catch((err) => console.log(err))
+
+      setUser(result.user)
+      console.log(result.user);
+      toast.success("User created successfully!", {
+        theme: "colored",
+        toastId: "success"
+
       });
     }).catch(error => {
-        console.log(error)
-        setLoading(false);
-        toast.warn(`${error}`,{
-          theme: "colored"
+      console.log(error)
+      setLoading(false);
+      toast.warn(`${error}`, {
+        theme: "colored"
       });
     })
     // const user = auth.currentUser;
   }
 
-  const signInUser = (email, password)=>{
+  const signInUser = (email, password) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password).then(result => {
-        setUser(result.user)
+      setUser(result.user)
       console.log(result);
       setLoading(false);
-      toast.success("User login successfully!",{
+      toast.success("User login successfully!", {
         theme: "colored",
         toastId: "success"
 
-    });
+      });
     }).catch(error => {
       console.log(error)
       setLoading(false);
-      toast.warn('An error happened',{
+      toast.warn('An error happened', {
         theme: "colored"
-    });
+      });
     })
   }
 
-  const logOutUser = ()=> {
+  const logOutUser = () => {
     signOut(auth).then(() => {
       // 
-      toast.success("Sign-out successful.",{
+      toast.success("Sign-out successful.", {
         theme: "colored",
         toastId: "success"
-    });
+      });
     }).catch((error) => {
       // An error happened.
       console.log(error)
-      toast.warn(`An error happened`,{
+      toast.warn(`An error happened`, {
         theme: "colored"
-    });
+      });
     });
   }
-  const handleGoogleSignIn = ()=>{
+
+
+  const handleGoogleSignIn = () => {
     setLoading(true);
-    signInWithPopup(auth, authProviderGoogle).then(result => {
+    signInWithPopup(auth, authProviderGoogle).then(async (result) => {
       setUser(result.user)
       setLoading(false);
-      toast.success("Login successfully!",{
+      toast.success("Login successfully!", {
         theme: "colored",
         toastId: "success"
 
-    });
-      
+      });
+
+      const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
+
+      try {
+        const res = await fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(user)
+        })
+        const data = await res.json()
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
+
+
     }).catch(error => {
       console.log(error)
       setLoading(false);
-      toast.warn(`An error happened`,{
+      toast.warn(`An error happened`, {
         theme: "colored"
-    });
+      });
     })
   }
 
-  const handleGithubSignIn = ()=>{
+  const handleGithubSignIn = () => {
     setLoading(true);
-    signInWithPopup(auth, authProviderGithub).then(result => {
+    signInWithPopup(auth, authProviderGithub).then(async (result) => {
       console.log(result);
       setUser(result.user)
       setLoading(false);
-      toast.success("User login successfully!",{
+
+      const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
+      
+      try {
+        const res = await fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(user)
+        })
+        const data = await res.json()
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
+
+
+      toast.success("User login successfully!", {
         theme: "colored",
         toastId: "success"
 
-    });
+      });
     }).catch(error => {
       console.log(error)
       setLoading(false);
-      toast.warn(`An error happened`,{
+      toast.warn(`An error happened`, {
         theme: "colored"
-    });
+      });
     })
   }
 
-  const handleFacebookSignIn = ()=>{
+  const handleFacebookSignIn = () => {
     setLoading(true);
     signInWithPopup(auth, authProviderFacebook).then(result => {
       console.log(result);
@@ -167,22 +221,22 @@ function AuthProvider({children}) {
     userName
   }
 
-  useEffect(()=> {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser)=> {
-        console.log(currentUser);
-        
-        setUser(currentUser);
-        setUserName(currentUser?.displayName);
-        setUserPhoto(currentUser?.photoURL)
-        setLoading(false)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+
+      setUser(currentUser);
+      setUserName(currentUser?.displayName);
+      setUserPhoto(currentUser?.photoURL)
+      setLoading(false)
     })
-    
+
     return unsubscribe
   }, [auth])
-  
+
   return (
     <myContext.Provider value={authValue}>
-        {children}
+      {children}
     </myContext.Provider>
   )
 }

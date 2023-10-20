@@ -1,12 +1,17 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineRight } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import BrandCard from "../components/BrandCard";
 
 
-function ProductDetails({singleProduct, reletedProduct, slug}) {
+function ProductDetails() {
+    const [relatedProduct, setRelatedProduct] = useState([]); 
     const [showSemple, setShowSemple] = useState(0);
     const [qty, setQty] = useState(0);
+    const loaderData = useLoaderData();
+
+    console.log(loaderData)
 
      // set increament & decreament
 
@@ -19,14 +24,28 @@ function ProductDetails({singleProduct, reletedProduct, slug}) {
             qty > 1 && setQty(qty - 1)
         }
     }
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await fetch(`http://localhost:5000/products/type/${loaderData.type}`);
+                const data = await res.json();
+                console.log(data)
+                setRelatedProduct(data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
+    }, [loaderData])
     
   return (
     <>
             <div className="flex w-[90%] m-auto gap-4 items-center mt-[7rem] mb-[4rem]">
                     <div className="flex items-center gap-4 border-r-2 border-gray-500 pr-4 text-[#9F9F9F]">
-                    <Link href="/">Home</Link><span><AiOutlineRight /></span> <Link href="/products">Products</Link><span><AiOutlineRight /></span>
+                    <Link to="/">Home</Link><span><AiOutlineRight /></span> <Link to="/products">Products</Link><span><AiOutlineRight /></span>
                     </div>
-                    <span className="font-medium">Asgaard sofa</span>
+                    <span className="font-medium">{loaderData.name}</span>
             </div>
                 {/* product details */}
             <div
@@ -53,15 +72,15 @@ function ProductDetails({singleProduct, reletedProduct, slug}) {
                 <div
                     className="flex justify-center items-center w-full h-[30rem] bg-[#FFF9E5] p-3 order-1 md:order-2 group"
                 >
-                    <img src='' alt="" className="w-full h-full object-contain transition-all group-hover:scale-110" />
+                    <img src={loaderData.image} alt="" className="w-full h-full object-contain transition-all group-hover:scale-110" />
                 </div>
                 </div>
                 
                 <div
                 className="flex flex-col gap-5 w-full md:w-1/2 text-center md:text-start"
                 >
-                <h3 className="text-[2.625rem]">Name</h3>
-                <h4 className="text-[1.5rem]"> Price</h4>
+                <h3 className="text-[2.625rem]">{loaderData.name}</h3>
+                <h4 className="text-[1.5rem]">{loaderData.price}</h4>
                 <div className="flex items-center gap-6 justify-center md:justify-start">
                     <div
                     className="flex border-r-2 border-gray-500 text-yellow-500 pr-4 py-2"
@@ -131,6 +150,12 @@ function ProductDetails({singleProduct, reletedProduct, slug}) {
                 </ul>
                 
                 </div>
+            </div>
+            <div className="container mx-auto grid grid-cols-1 2xl:grid-cols-2 gap-6">
+                {relatedProduct.length > 0 && relatedProduct.map((item)=> (
+                    <BrandCard key={item._id} item={item} />
+                ))}
+
             </div>
     </>
   )
