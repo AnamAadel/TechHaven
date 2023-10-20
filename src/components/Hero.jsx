@@ -39,7 +39,7 @@ function Hero() {
   }, [])
   return (
     <div className="min-h-[70vh] relative ">
-      <div className="flex justify-center gap-4">
+      <div className="flex flex-col-reverse md:flex-row justify-center gap-4">
         <div className="w-full md:w-1/2 p-8 space-y-4 bg-primary">
           <h1 className="text-5xl font-bold text-color">{heroProduct?.length > 0 && heroProduct[imgIndex].name}</h1>
           <p className="font-medium">{heroProduct?.length > 0 && heroProduct[imgIndex].short_description}</p>
@@ -50,6 +50,15 @@ function Hero() {
           slidesPerView={5}
           spaceBetween={30}
           direction={'vertical'}
+
+          breakpoints={{
+                0: {
+                    direction: "horizontal"
+                },
+                768: {
+                    direction: "vertical"
+                }
+                }}
           pagination={{
             clickable: true,
           }}
@@ -58,7 +67,7 @@ function Hero() {
           autoplay={{ disableOnInteraction: false }}
           modules={[FreeMode, Autoplay, Navigation]}
           onSlideChange={(swiper) => handleHeroImage(swiper)}
-          className="banner cursor-grab ml-6 mr-6 shadow-xl bg-[#abc0ce6b] "
+          className="banner cursor-grab ml-6 mr-6 shadow-xl bg-[#abc0ce6b] hidden md:block "
         >
           {heroProduct?.length > 0 && heroProduct.map((item, ind) => (
             <SwiperSlide key={item.id}><img src={item.image_url} alt="" className={imgIndex === ind ? `opacity-100` : `opacity-20`} /></SwiperSlide>
@@ -66,7 +75,7 @@ function Hero() {
           ))}
         </Swiper>
 
-        <div className="card bg-base-100 w-1/2 rounded-none">
+        <div className="card bg-base-100 w-full md:w-1/2 rounded-none">
           <figure><img src={heroProduct?.length > 0 && heroProduct[imgIndex].image_url} alt="Shoes" className='h-[70vh] object-cover' ref={bannerImg} /></figure>
         </div>
       </div>

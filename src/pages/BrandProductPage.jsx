@@ -19,7 +19,7 @@ function BrandProductPage() {
         <BrandHero banners={banners} />
         <div className="container mx-auto grid grid-cols-1 2xl:grid-cols-2 gap-6">
           {brandProduct.length > 0 && brandProduct.map((item)=> (
-            <BrandCard key={item._id} item={item} />
+            <BrandCard key={item._id} item={item} isDelete={false} />
 
           ))}
         </div>

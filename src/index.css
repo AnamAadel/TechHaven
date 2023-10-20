@@ -50,6 +50,20 @@
     width: 100px;
     height: 70vh;
   }
+
+  @media screen and (max-width: 768px) {
+    .banner.swiper {
+      width: 100%;
+      height: 100px;
+    }
+    
+  }
+
+  @media screen and (max-width: 1024px) {
+    .product_cart{
+      grid-column: 1 / -1 !important;
+    }
+  }
   
  .banner .swiper-slide {
     text-align: center;

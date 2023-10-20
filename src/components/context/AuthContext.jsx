@@ -13,6 +13,8 @@ export const AuthContexts = () => {
 function AuthProvider({ children }) {
 
   const [user, setUser] = useState(null)
+  const [mongoCurrentUser, setMongoCurrentUser] = useState(null)
+  const [cartProduct, setCartProduct] = useState([]);
   const [userPhoto, setUserPhoto] = useState(null);
   const [userName, setUserName] = useState('');
   const [loading, setLoading] = useState(true);
@@ -218,12 +220,35 @@ function AuthProvider({ children }) {
     user,
     loading,
     userPhoto,
-    userName
+    userName,
+    mongoCurrentUser,
+    cartProduct,
+    setCartProduct
   }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
+
+      async function fetchCurrentUser(){
+        try {
+          const res = await fetch(`http://localhost:5000/users/current-user`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({email: currentUser?.email})
+          });
+          const jsonData = await res.json();
+          setMongoCurrentUser(jsonData);
+          setCartProduct(jsonData.products)
+          console.log(jsonData)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+  
+      fetchCurrentUser();
 
       setUser(currentUser);
       setUserName(currentUser?.displayName);
