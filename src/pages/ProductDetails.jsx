@@ -31,26 +31,46 @@ function ProductDetails() {
             });
             const jsonData = await res.json();
             // setMongoCurrentUser(jsonData);
-            if(jsonData.modifiedCount > 0){
-                mongoCurrentUser.products.forEach((product)=> {
-                    if(product._id === loaderData._id){
-                        product.qty = qty;
-                    }
-                })
+            console.log(jsonData)
+            if(jsonData.modifiedCount > 0 || jsonData.acknowledged){
+                if(mongoCurrentUser.products){
+                    mongoCurrentUser.products.forEach((product)=> {
+                        if(product._id === loaderData._id){
+                            product.qty = qty;
+                        }
+                    })
+    
+                    const productIndex = cartProduct?.findIndex((item)=> item._id === userProduct._id);
 
-                const productIndex = cartProduct?.findIndex((item)=> item.id === userProduct.id);
-                if(productIndex >= 0){
-                    const newProduct = [...cartProduct];
-                    newProduct.splice(productIndex, 1, userProduct)
-                    setCartProduct(newProduct)
+                    console.log(productIndex)
+                    if(productIndex >= 0){
+                        const newProduct = [...cartProduct];
+                        newProduct.splice(productIndex, 1, userProduct)
+                        setCartProduct(newProduct)
+                        console.log("updated")
+                          toast.success("Product updated to the cart successfully!", {
+                              theme: "colored",
+                              toastId: "success"
+                            });
+                        }else{
+                        setCartProduct([...cartProduct, userProduct])
+                        toast.success("Product added to the cart successfully!", {
+                            theme: "colored",
+                            toastId: "success"
+                          });
+                          console.log("added")
+                    }
+                    
+                    
+
                 }else{
-                    setCartProduct([...cartProduct, userProduct])
+                    setCartProduct([userProduct])
+                    toast.success("Product added to the cart successfully!", {
+                        theme: "colored",
+                        toastId: "success"
+                      });
                 }
-                
-                toast.success("Product added to the cart successfully!", {
-                    theme: "colored",
-                    toastId: "success"
-                  });
+                        
             }
 
           } catch (error) {
