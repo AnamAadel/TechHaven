@@ -22,8 +22,8 @@ function BrandProductPage() {
             <BrandCard key={item._id} item={item} isDelete={false} />
 
           ))}
-          
-          {brandProduct.length >= 0 && <img src="https://cdn.vectorstock.com/i/preview-1x/84/72/flat-design-no-data-error-vector-47758472.webp" className="mx-auto h-screen max-[400px]" />}
+
+          {brandProduct.length <= 0 && <img src="https://cdn.vectorstock.com/i/preview-1x/84/72/flat-design-no-data-error-vector-47758472.webp" className="mx-auto h-screen max-[400px]" />}
         </div>
     </div>
   )
