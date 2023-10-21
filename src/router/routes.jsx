@@ -29,7 +29,7 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/add_product",
-        element: <AddProduct />,
+        element: <PrivateRoute><AddProduct /></PrivateRoute> ,
       },
       {
         path: "/my_cart",
