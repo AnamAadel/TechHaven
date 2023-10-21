@@ -1,0 +1,424 @@
+{
+  "products": [
+    {
+      "name": "iPhone 13",
+      "brand": "Apple",
+      "type": "Smartphone",
+      "price": "$999",
+      "image": "https://m.media-amazon.com/images/I/41jjlUMVbUL._AC_SX679_.jpg",
+      "description": "The latest iPhone with impressive features.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.5
+    },
+    {
+      "name": "MacBook Pro",
+      "brand": "Apple",
+      "type": "Laptop",
+      "price": "$1,299",
+      "image": "https://m.media-amazon.com/images/I/61L5QgPvgqL._AC_UY218_.jpg",
+      "description": "A high-performance laptop for professionals.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.8
+    },
+    {
+      "name": "Apple Watch Series 7",
+      "brand": "Apple",
+      "type": "Smartwatch",
+      "price": "$399",
+      "image": "https://m.media-amazon.com/images/I/719qgNv-ubL._AC_UY218_.jpg",
+      "description": "Stay connected and track your health with style.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "iPad Air",
+      "brand": "Apple",
+      "type": "Tablet",
+      "price": "$499",
+      "image": "https://m.media-amazon.com/images/I/61CPVFt5eHL._AC_UY218_.jpg",
+      "description": "Versatile tablet for work and play.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.7
+    },
+    {
+      "name": "AirPods Pro",
+      "brand": "Apple",
+      "type": "Wireless Earbuds",
+      "price": "$249",
+      "image": "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_UY218_.jpg",
+      "description": "Premium noise-canceling earbuds.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.5
+    },
+    {
+      "name": "iMac",
+      "brand": "Apple",
+      "type": "Desktop",
+      "price": "$1,299",
+      "image": "https://m.media-amazon.com/images/I/61k5t0uf4xL._AC_UY218_.jpg",
+      "description": "Sleek all-in-one desktop computer.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.7
+    },
+    {
+      "name": "Apple Pencil",
+      "brand": "Apple",
+      "type": "Stylus",
+      "price": "$99",
+      "image": "https://m.media-amazon.com/images/I/51+oaOVMYtL._AC_UY218_.jpg",
+      "description": "Precision drawing and note-taking tool.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Galaxy S21",
+      "brand": "Samsung",
+      "type": "Smartphone",
+      "price": "$799",
+      "image": "https://m.media-amazon.com/images/I/61ZNIHIEUqL._AC_UY218_.jpg",
+      "description": "Powerful smartphone with an amazing camera.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.4
+    },
+    {
+      "name": "Samsung QLED 4K TV",
+      "brand": "Samsung",
+      "type": "TV",
+      "price": "$1,199",
+      "image": "https://m.media-amazon.com/images/I/51TG-DD2thL._AC_UY218_.jpg",
+      "description": "Immerse yourself in stunning 4K visuals.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.7
+    },
+    {
+      "name": "Galaxy Buds Pro",
+      "brand": "Samsung",
+      "type": "Wireless Earbuds",
+      "price": "$199",
+      "image": "https://m.media-amazon.com/images/I/61qVCvt2xjL._AC_UY218_.jpg",
+      "description": "True wireless earbuds with exceptional sound quality.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Samsung Galaxy Tab S7",
+      "brand": "Samsung",
+      "type": "Tablet",
+      "price": "$649",
+      "image": "https://m.media-amazon.com/images/I/61R+N9o0TyL._AC_UY218_.jpg",
+      "description": "Premium Android tablet for productivity.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    },
+    {
+      "name": "Samsung Gear S3",
+      "brand": "Samsung",
+      "type": "Smartwatch",
+      "price": "$249",
+      "image": "https://m.media-amazon.com/images/I/61lKBYe8g7L._AC_UY218_.jpg",
+      "description": "Stylish and feature-rich smartwatch.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.3
+    },
+    {
+      "name": "Samsung Odyssey G9",
+      "brand": "Samsung",
+      "type": "Gaming Monitor",
+      "price": "$1,199",
+      "image": "https://m.media-amazon.com/images/I/61QSUZYl+dL._AC_UY218_.jpg",
+      "description": "Immersive gaming monitor with QLED technology.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.8
+    },
+    {
+      "name": "Samsung Galaxy Book Pro",
+      "brand": "Samsung",
+      "type": "Laptop",
+      "price": "$1,099",
+      "image": "https://m.media-amazon.com/images/I/71IqYm24D+L._AC_UY218_.jpg",
+      "description": "Slim and powerful laptop for on-the-go professionals.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Google Pixel 6",
+      "brand": "Google",
+      "type": "Smartphone",
+      "price": "$799",
+      "image": "https://m.media-amazon.com/images/I/61KfUtmSrzL._AC_UY218_.jpg",
+      "description": "Capture stunning photos and enjoy pure Android.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    },
+    {
+      "name": "Google Nest Hub",
+      "brand": "Google",
+      "type": "Smart Display",
+      "price": "$129",
+      "image": "https://m.media-amazon.com/images/I/71nJxwi2gYL._AC_UY218_.jpg",
+      "description": "A smart display for your home automation needs.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.4
+    },
+    {
+      "name": "Google Pixelbook Go",
+      "brand": "Google",
+      "type": "Laptop",
+      "price": "$649",
+      "image": "https://m.media-amazon.com/images/I/71Erq-PlhhL._AC_UL320_.jpg",
+      "description": "A lightweight Chromebook for productivity.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.3
+    },
+    {
+      "name": "Google Pixel Buds",
+      "brand": "Google",
+      "type": "Wireless Earbuds",
+      "price": "$179",
+      "image": "https://m.media-amazon.com/images/I/61qVCvt2xjL._AC_UY218_.jpg",
+      "description": "Wireless earbuds with Google Assistant integration.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Google Home Mini",
+      "brand": "Google",
+      "type": "Smart Speaker",
+      "price": "$49",
+      "image": "https://m.media-amazon.com/images/I/614RoGCz8vL._AC_UY218_.jpg",
+      "description": "Voice-activated smart speaker for your home.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.3
+    },
+    {
+      "name": "Google Wi-Fi",
+      "brand": "Google",
+      "type": "Mesh Router",
+      "price": "$99",
+      "image": "https://m.media-amazon.com/images/I/41K+qYuMSTL._AC_UY218_.jpg",
+      "description": "Expand and improve your home network with ease.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    },
+    {
+      "name": "Google Chromecast Ultra",
+      "brand": "Google",
+      "type": "Streaming Device",
+      "price": "$69",
+      "image": "https://m.media-amazon.com/images/I/51zUyjdP1oL._AC_UY218_.jpg",
+      "description": "Stream 4K content to your TV effortlessly.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.4
+    },
+    {
+      "name": "Sony Xperia 1 III",
+      "brand": "Sony",
+      "type": "Smartphone",
+      "price": "$1,199",
+      "image": "https://m.media-amazon.com/images/I/71YvGj855+L._AC_UY218_.jpg",
+      "description": "A flagship smartphone for multimedia enthusiasts.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.7
+    },
+    {
+      "name": "Sony Bravia 4K OLED TV",
+      "brand": "Sony",
+      "type": "TV",
+      "price": "$1,499",
+      "image": "https://m.media-amazon.com/images/I/81Pupl7ravL._AC_UY218_.jpg",
+      "description": "Experience cinematic visuals at home.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.8
+    },
+    {
+      "name": "Sony WH-1000XM4",
+      "brand": "Sony",
+      "type": "Headphones",
+      "price": "$349",
+      "image": "https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_UY218_.jpg",
+      "description": "Noise-canceling headphones for immersive audio.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Sony Alpha 7 III",
+      "brand": "Sony",
+      "type": "Mirrorless Camera",
+      "price": "$1,999",
+      "image": "https://m.media-amazon.com/images/I/71vpzW1nQJL._AC_UY218_.jpg",
+      "description": "High-quality camera for photography enthusiasts.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.8
+    },
+    {
+      "name": "Sony Playstation 5",
+      "brand": "Sony",
+      "type": "Gaming Console",
+      "price": "$499",
+      "image": "https://m.media-amazon.com/images/I/51051FiD9UL._AC_UY218_.jpg",
+      "description": "Next-gen gaming with powerful hardware.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.9
+    },
+    {
+      "name": "Sony WH-CH710N",
+      "brand": "Sony",
+      "type": "Wireless Headphones",
+      "price": "$129",
+      "image": "https://m.media-amazon.com/images/I/51vEirKgmuL._AC_UY218_.jpg",
+      "description": "Affordable wireless headphones with noise cancellation.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.4
+    },
+    {
+      "name": "Sony X900H 4K TV",
+      "brand": "Sony",
+      "type": "TV",
+      "price": "$1,199",
+      "image": "https://m.media-amazon.com/images/I/81pmRUZ8zlL._AC_UY218_.jpg",
+      "description": "4K LED TV with great picture quality.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.7
+    },
+    {
+      "name": "Intel Core i9-11900K",
+      "brand": "Intel",
+      "type": "Processor",
+      "price": "$499",
+      "image": "https://m.media-amazon.com/images/I/71mWLdyy02L._AC_UY218_.jpg",
+      "description": "High-performance processor for gaming and content creation.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.9
+    },
+    {
+      "name": "Intel SSD 670p",
+      "brand": "Intel",
+      "type": "Solid State Drive",
+      "price": "$149",
+      "image": "https://m.media-amazon.com/images/I/81orrCnzpaS._AC_UY218_.jpg",
+      "description": "Fast and reliable storage for your PC.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.7
+    },
+    {
+      "name": "Intel NUC Mini PC",
+      "brand": "Intel",
+      "type": "Mini PC",
+      "price": "$399",
+      "image": "https://m.media-amazon.com/images/I/61nYDaKBG1L._AC_UY218_.jpg",
+      "description": "Compact yet powerful computing solution.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    },
+    {
+      "name": "Intel Core i5-11600K",
+      "brand": "Intel",
+      "type": "Processor",
+      "price": "$299",
+      "image": "https://m.media-amazon.com/images/I/51KbX1yFGCL._AC_UY218_.jpg",
+      "description": "Mid-range processor for gaming and multitasking.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.6
+    },
+    {
+      "name": "Intel Optane 905P",
+      "brand": "Intel",
+      "type": "SSD",
+      "price": "$299",
+      "image": "https://m.media-amazon.com/images/I/61SyBnrFRZL._AC_UY218_.jpg",
+      "description": "High-end SSD for ultra-fast storage performance.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.8
+    },
+    {
+      "name": "Intel NUC 11 Pro",
+      "brand": "Intel",
+      "type": "Mini PC",
+      "price": "$799",
+      "image": "https://m.media-amazon.com/images/I/61nYDaKBG1L._AC_UY218_.jpg",
+      "description": "Professional-grade mini PC for business users.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    },
+    {
+      "name": "Intel Core i3-10100",
+      "brand": "Intel",
+      "type": "Processor",
+      "price": "$129",
+      "image": "https://m.media-amazon.com/images/I/51AXYc+jykL._AC_UY218_.jpg",
+      "description": "Entry-level processor for budget PCs.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.2
+    },
+    {
+      "name": "Xiaomi Mi 11",
+      "brand": "Xiaomi",
+      "type": "Smartphone",
+      "price": "$699",
+      "image": "https://m.media-amazon.com/images/I/81fRAoUL-fL._AC_UY218_.jpg",
+      "description": "Feature-packed smartphone at an affordable price.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.4
+    },
+    {
+      "name": "Xiaomi Mi Smart Band 6",
+      "brand": "Xiaomi",
+      "type": "Fitness Tracker",
+      "price": "$49",
+      "image": "https://m.media-amazon.com/images/I/51-qjbEW0XL._AC_UY218_.jpg",
+      "description": "Track your health and fitness goals with style.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.6
+    },
+    {
+      "name": "Xiaomi RedmiBook Pro",
+      "brand": "Xiaomi",
+      "type": "Laptop",
+      "price": "$699",
+      "image": "https://m.media-amazon.com/images/I/71bypVrV--L._AC_UY218_.jpg",
+      "description": "Affordable yet powerful laptop for everyday use.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 1 / span 1"},
+      "rating": 4.3
+    },
+    {
+      "name": "Xiaomi Mi TV 4X",
+      "brand": "Xiaomi",
+      "type": "Smart TV",
+      "price": "$449",
+      "image": "https://m.media-amazon.com/images/I/41Wxy0aKBmS._AC_UY218_.jpg",
+      "description": "Affordable smart TV with great features.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.5
+    },
+    {
+      "name": "Xiaomi Redmi Note 12 pro",
+      "brand": "Xiaomi",
+      "type": "Smartphone",
+      "price": "$249",
+      "image": "https://m.media-amazon.com/images/I/61tevdEa2UL._AC_UY218_.jpg",
+      "description": "Budget-friendly smartphone with good performance.",
+      "span": {"gridColumn": "span 2 / span 2", "gridRow": "span 1 / span 1"},
+      "rating": 4.2
+    },
+    {
+      "name": "Xiaomi Mi AirDots Pro",
+      "brand": "Xiaomi",
+      "type": "Wireless Earbuds",
+      "price": "$79",
+      "image": "https://m.media-amazon.com/images/I/51xOKpb-tLL._AC_UY218_.jpg",
+      "description": "True wireless earbuds with touch controls.",
+      "span": {"gridColumn": "span 1 / span 1", "gridRow": "span 2 / span 2"},
+      "rating": 4.4
+    },
+    {
+      "name": "Xiaomi Mi Electric Scooter",
+      "brand": "Xiaomi",
+      "type": "Electric Scooter",
+      "price": "$399",
+      "image": "https://m.media-amazon.com/images/I/710rjKlN2CL._AC_UL320_.jpg",
+      "description": "Foldable and portable electric scooter for commuting.",
+      "span": {"gridColumn": "span 3 / span 3", "gridRow": "span 1 / span 1"},
+      "rating": 4.5
+    }
+  ]
+}
