@@ -7,7 +7,7 @@ function Facilities() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("http://localhost:5000/facilities/all");
+                const res = await fetch("https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/facilities/all");
                 const data = await res.json();
                 console.log(data)
                 setCategoryData(data);

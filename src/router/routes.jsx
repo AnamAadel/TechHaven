@@ -5,6 +5,7 @@ import Root from "../Root";
 import AddProduct from "../pages/AddProduct";
 import AllUsers from "../pages/AllUsers";
 import BrandProductPage from "../pages/BrandProductPage";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyCart from "../pages/MyCart";
@@ -20,7 +21,7 @@ import PrivateRoute from "./PrivateRoute";
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -28,11 +29,11 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/add_product",
-        element: <AddProduct />,
+        element: <PrivateRoute><AddProduct /></PrivateRoute> ,
       },
       {
         path: "/my_cart",
-        element: <MyCart />,
+        element: <PrivateRoute><MyCart /></PrivateRoute>,
       },
       {
         path: "/register",
@@ -44,27 +45,27 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/brand_products/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/brands/${params.id}`) ,
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/brands/${params.id}`) ,
         element: <BrandProductPage />,
       },
       {
         path: "/products/detail/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/${params.id}`),
         element: <PrivateRoute><ProductDetails /></PrivateRoute>,
       },
       {
         path: "/products/update/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/${params.id}`),
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
       },
       {
         path: "/users/all",
-        loader: ()=> fetch(`http://localhost:5000/users/all`),
+        loader: ()=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/all`),
         element: <AllUsers />,
       },
       {
         path: "/users/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/${params.id}`),
         element: <UserProducts />,
       },
     ]

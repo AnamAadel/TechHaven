@@ -23,7 +23,11 @@ function BrandProductPage() {
 
           ))}
 
-          {brandProduct.length <= 0 && <img src="https://cdn.vectorstock.com/i/preview-1x/84/72/flat-design-no-data-error-vector-47758472.webp" className="mx-auto h-screen max-[400px]" />}
+          {brandProduct.length <= 0 && <div className='font-bold text-center text-5xl space-y-2 mb-8'>
+          <img src="https://cdn.vectorstock.com/i/preview-1x/84/72/flat-design-no-data-error-vector-47758472.webp" className="mx-auto max-[400px]" />
+              <h3>No product of this brand</h3>
+          </div> 
+          }
         </div>
     </div>
   )
