@@ -5,6 +5,7 @@ import Root from "../Root";
 import AddProduct from "../pages/AddProduct";
 import AllUsers from "../pages/AllUsers";
 import BrandProductPage from "../pages/BrandProductPage";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyCart from "../pages/MyCart";
@@ -20,7 +21,7 @@ import PrivateRoute from "./PrivateRoute";
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
