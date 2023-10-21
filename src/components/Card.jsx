@@ -8,7 +8,7 @@ function Card({item}) {
   const [isLike, setIsLike] = useState(false);
  
   return (
-    <div  className={`card rounded-none justify-center relative pt-16 p-12 bg-slate-200 hover:bg-slate-300 group product_cart`} style={item.span}>
+    <div  className={`card rounded-none justify-center relative pt-16 text-neutral-focus p-12 bg-slate-200 hover:bg-slate-300 group product_cart`} style={item.span}>
     <figure><img src={item.image} className='h-32 mix-blend-multiply' alt="Shoes" /></figure>
     <div className="card-body pt-3 absolute top-0 left-0 right-0 bottom-0">
       <h2 className="card-title -ml-2">{item.name}</h2>

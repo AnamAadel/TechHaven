@@ -55,14 +55,16 @@ function Navbar() {
         <Link to="/" className="btn btn-ghost normal-case text-xl "><img src={logo} alt="Logo" className='h-full' /></Link>
       </div>
       <div className="flex-none">
-        <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-neutral font-bold`} >
-          <li onClick={handleMenu}><NavLink to={`/`}>Home</NavLink></li>
-          <li onClick={handleMenu}><NavLink to={`/add_product`}>Add Product</NavLink></li>
-          <li onClick={handleMenu}><NavLink to={`/my_cart`}>My Cart</NavLink></li>
+        <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto gap-2"} bg-neutral font-bold`} >
+          <li onClick={handleMenu}><NavLink to={`/`} className="item">Home</NavLink></li>
+          <li onClick={handleMenu}><NavLink to={`/add_product`} className="item">Add Product</NavLink></li>
+          <li onClick={handleMenu}><NavLink to={`/my_cart`} className="item">My Cart</NavLink></li>
+          
+          <li onClick={handleMenu}><NavLink to={`/users/all`} className="item">All Users</NavLink></li>
           {!user &&
             <>
-              <li onClick={handleMenu}><NavLink to={`/register`}>Register</NavLink></li>
-              <li onClick={handleMenu}><NavLink to={`/login`} >Log in</NavLink></li>
+              <li onClick={handleMenu}><NavLink to={`/register`} className="item">Register</NavLink></li>
+              <li onClick={handleMenu}><NavLink to={`/login`} className="item">Log in</NavLink></li>
             </>
           }
         </ul>
@@ -80,7 +82,7 @@ function Navbar() {
         </label>
           <h3 className='text-lg font-semibold hidden md:block'>{user ? `Hi! ${userName || user.displayName}` : "What's up, bro?"} </h3>
 
-          {user && <button className='btn bg-dark text-white hover:bg-dark hidden md:block' onClick={logOutUser}>Logout</button>}
+          {user && <button className='py-2 p-4 bg-white text-neutral hidden md:block' onClick={logOutUser}>Logout</button>}
 
         <div tabIndex={0} className="menu menu-sm top-full dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-center space-y-4">
           <div className="w-10 rounded-full mx-auto">

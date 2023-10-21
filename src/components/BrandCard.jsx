@@ -42,7 +42,7 @@ function BrandCard({item, isDelete}) {
     }
     return (
         <div>
-            <div className="card card-side flex flex-col sm:flex-row bg-base-100 shadow-xl border-b-2">
+            <div className="card card-side flex flex-col sm:flex-row shadow-xl border-b-2">
                 <figure className='p-4 px-8 md:px-16 max-w-xs'>
                 <img src={item.image} alt="Movie" />
                 </figure>

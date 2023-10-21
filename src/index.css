@@ -45,6 +45,34 @@
     background: #fff;
   }
 
+  .navbar .menu .item{
+    position: relative;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    
+}
+  .navbar .menu .item::before{
+    content: "";
+    width: 0%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transition: all linear .2s;
+    -webkit-transition: all linear .2s;
+    -moz-transition: all linear .2s;
+    -ms-transition: all linear .2s;
+    -o-transition: all linear .2s;
+}
+  .navbar .menu .item:hover::before, .navbar .menu .item.active::before{
+    content: "";
+    width: 100%;
+  }
+  .navbar .menu .item:hover,  .navbar .menu .item.active{
+    color: #fff;
+  }
 
  .banner.swiper {
     width: 100px;

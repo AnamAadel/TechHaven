@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import Root from "../Root";
 import AddProduct from "../pages/AddProduct";
+import AllUsers from "../pages/AllUsers";
 import BrandProductPage from "../pages/BrandProductPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -10,6 +11,7 @@ import MyCart from "../pages/MyCart";
 import ProductDetails from "../pages/ProductDetails";
 import Register from "../pages/Register";
 import UpdateProduct from "../pages/UpdateProduct";
+import UserProducts from "../pages/UserProducts";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
 
@@ -54,6 +56,16 @@ import PrivateRoute from "./PrivateRoute";
         path: "/products/update/:id",
         loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
+      },
+      {
+        path: "/users/all",
+        loader: ()=> fetch(`http://localhost:5000/users/all`),
+        element: <AllUsers />,
+      },
+      {
+        path: "/users/:id",
+        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`),
+        element: <UserProducts />,
       },
     ]
   },
