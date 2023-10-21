@@ -1,11 +1,14 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-const categories = ["Smartphone", "Laptop", "Smartwatch", "Tablet", "Wireless Earbuds", "Desktop", "Stylus", "TV", "Gaming Monitor", "Gaming Console", "Headphones", "Mirrorless Camera", "Solid State Drive", "Mini PC", "Smart Display", "Fitness Tracker", "Smart Speaker", "Mesh Router", "Streaming Device", "Electric Scooter"]
 
 function UpdateProduct() {
   const product = useLoaderData();
+  const navigation = useNavigate();
+
+  const handleNavigate = ()=> {
+    navigation(-1)
+  }
 
   const handleForm = async (e)=> {
     e.preventDefault()
@@ -42,8 +45,9 @@ function UpdateProduct() {
     }
 }
   return (
-      <div className="hero-content flex-col mb-24 mt-36 container mx-auto bg-darkGray">
+      <div className="hero-content flex-col mb-24 mt-10 container mx-auto bg-darkGray">
       <ToastContainer />
+        <button className="btn bg-neutral-focus text-white hover:bg-neutral-focus" onClick={handleNavigate}>Go Back</button>
         <div className="text-center space-y-4">
           <h2 className='font-rancho text-4xl text-coffee' style={{ textShadow: "0px 0px 3px #331A15, 2px 2px 10px #331A15, -2px -2px 4px #331A15" }}>Update Product</h2>
           <p className='font-raleway text-lg font-medium'>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
