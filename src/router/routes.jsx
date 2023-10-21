@@ -32,7 +32,7 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/my_cart",
-        element: <MyCart />,
+        element: <PrivateRoute><MyCart /></PrivateRoute>,
       },
       {
         path: "/register",
