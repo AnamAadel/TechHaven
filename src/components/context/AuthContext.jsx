@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
 
             const user = { userName, email, userImage, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
             try {
-              const res = await fetch("http://localhost:5000/users", {
+              const res = await fetch("https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json"
@@ -137,7 +137,7 @@ function AuthProvider({ children }) {
       const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
 
       try {
-        const res = await fetch("http://localhost:5000/users", {
+        const res = await fetch("https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json"
@@ -170,7 +170,7 @@ function AuthProvider({ children }) {
       const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
       
       try {
-        const res = await fetch("http://localhost:5000/users", {
+        const res = await fetch("https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json"
@@ -232,7 +232,7 @@ function AuthProvider({ children }) {
 
       async function fetchCurrentUser(){
         try {
-          const res = await fetch(`http://localhost:5000/users/current-user`, {
+          const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/current-user`, {
             method: "POST",
             headers: {
               "content-type": "application/json"

@@ -44,27 +44,27 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: "/brand_products/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/brands/${params.id}`) ,
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/brands/${params.id}`) ,
         element: <BrandProductPage />,
       },
       {
         path: "/products/detail/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/${params.id}`),
         element: <PrivateRoute><ProductDetails /></PrivateRoute>,
       },
       {
         path: "/products/update/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/${params.id}`),
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
       },
       {
         path: "/users/all",
-        loader: ()=> fetch(`http://localhost:5000/users/all`),
+        loader: ()=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/all`),
         element: <AllUsers />,
       },
       {
         path: "/users/:id",
-        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`),
+        loader: ({params})=> fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/${params.id}`),
         element: <UserProducts />,
       },
     ]

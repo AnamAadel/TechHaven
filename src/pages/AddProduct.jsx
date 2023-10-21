@@ -23,7 +23,7 @@ function AddProduct() {
     const product = {name,brand, type, rating, image, description,  price}
 
     try {
-        const res = await fetch(`http://localhost:5000/products`, {
+        const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

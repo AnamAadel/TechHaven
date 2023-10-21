@@ -11,7 +11,7 @@ function BrandCard({item, isDelete}) {
     const handleDeleteItem = async(id)=> {
         console.log({productId: id})
         try {
-            const res = await fetch(`http://localhost:5000/users/delete/${mongoCurrentUser._id}`, {
+            const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/delete/${mongoCurrentUser._id}`, {
                 method: "DELETE",
                 body: JSON.stringify({productId: id}),
                 headers: {
@@ -52,6 +52,7 @@ function BrandCard({item, isDelete}) {
                     <p>{item.description}</p>
                     <p><b>Brand</b>: {item.brand}</p>
                     <p><b>Price</b>: {item.price}</p>
+                    <p><b>Type</b>: {item.type}</p>
                     <p className='flex items-center gap-3'>{item.rating}
                     <BsStarFill />
                     <BsStarFill />

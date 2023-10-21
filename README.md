@@ -1,6 +1,7 @@
 
 The website name: Elegance & Essence Events;
 The website live link: https://ugliest-icicle.surge.sh/
+server side Link: https://assignment-10-server-fof1mbcod-aadelbanat8991-gmailcom.vercel.app
 
 ## Frontend Features
 

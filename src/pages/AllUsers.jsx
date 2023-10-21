@@ -11,7 +11,7 @@ function AllUsers() {
 
   const deleteItem = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/users/${id}`, {
+      const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json"

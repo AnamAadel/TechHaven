@@ -22,7 +22,7 @@ function ProductDetails() {
         console.log("click")
         const userProduct = { ...loaderData, qty: qty}
         try {
-            const res = await fetch(`http://localhost:5000/users/update/${mongoCurrentUser._id}`, {
+            const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/users/update/${mongoCurrentUser._id}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json"
@@ -94,7 +94,7 @@ function ProductDetails() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch(`http://localhost:5000/products/type/${loaderData.type}`);
+                const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/type/${loaderData.type}`);
                 const data = await res.json();
                 console.log(data)
                 setRelatedProduct(data);

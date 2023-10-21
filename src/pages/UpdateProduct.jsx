@@ -22,7 +22,7 @@ function UpdateProduct() {
     const coffee = {name,brand, type, rating, image, price}
 
     try {
-        const res = await fetch(`http://localhost:5000/products/update/${product._id}`, {
+        const res = await fetch(`https://assignment-10-server-6yim5dfbc-aadelbanat8991-gmailcom.vercel.app/products/update/${product._id}`, {
             method: "put",
             headers: {
                 "content-type": "application/json"
