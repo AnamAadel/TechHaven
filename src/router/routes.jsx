@@ -2,7 +2,6 @@ import {
   createBrowserRouter
 } from "react-router-dom";
 import Root from "../Root";
-import AddProduct from "../pages/AddProduct";
 import AllUsers from "../pages/AllUsers";
 import BrandProductPage from "../pages/BrandProductPage";
 import ErrorPage from "../pages/ErrorPage";
@@ -16,7 +15,6 @@ import UserProducts from "../pages/UserProducts";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
 
-
  const router = createBrowserRouter([
   {
     path: "/",
@@ -26,10 +24,6 @@ import PrivateRoute from "./PrivateRoute";
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/add_product",
-        element: <PrivateRoute><AddProduct /></PrivateRoute> ,
       },
       {
         path: "/my_cart",

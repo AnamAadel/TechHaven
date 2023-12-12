@@ -86,7 +86,7 @@ function AuthProvider({ children }) {
     // const user = auth.currentUser;
   }
 
-  const signInUser = (email, password) => {
+  const signInUser = (email, password, location, navigation) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password).then(result => {
       setUser(result.user)
@@ -97,6 +97,9 @@ function AuthProvider({ children }) {
         toastId: "success"
 
       });
+
+      console.log(location)
+      navigation(location ? location : "/")
     }).catch(error => {
       console.log(error)
       setLoading(false);
@@ -123,7 +126,7 @@ function AuthProvider({ children }) {
   }
 
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = (location, navigation) => {
     setLoading(true);
     signInWithPopup(auth, authProviderGoogle).then(async (result) => {
       setUser(result.user)
@@ -133,7 +136,8 @@ function AuthProvider({ children }) {
         toastId: "success"
 
       });
-
+      console.log(location)
+      navigation(location ? location : "/")
       const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
 
       try {
@@ -146,6 +150,7 @@ function AuthProvider({ children }) {
         })
         const data = await res.json()
         console.log(data);
+        
       } catch (error) {
         console.log(error)
       }
@@ -160,12 +165,14 @@ function AuthProvider({ children }) {
     })
   }
 
-  const handleGithubSignIn = () => {
+  const handleGithubSignIn = (location, navigation) => {
     setLoading(true);
     signInWithPopup(auth, authProviderGithub).then(async (result) => {
       console.log(result);
       setUser(result.user)
       setLoading(false);
+      console.log(location)
+      navigation(location ? location : "/")
 
       const user = { userName: result.user.displayName, email: result.user.email, userImage: result.user.photoURL, creationTime: result.user.metadata.creationTime, lastLoginTime: result.user.metadata.lastSignInTime, status: "active" }
       

@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContexts } from '../components/context/AuthContext';
 
 function PablicRoute({ children }) {
   const { user } = AuthContexts();
+  const location = useLocation()
 
   return (
     <div>
       {!user && children}
-      {user && <Navigate to="/" />}
+      {user && <Navigate to="/" state={location.pathname} />}
     </div>
   );
 }

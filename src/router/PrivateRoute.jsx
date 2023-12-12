@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContexts } from '../components/context/AuthContext';
 
 function PrivateRoute({children}) {
     const {user} = AuthContexts();
-  return (
-    <>
-        {user && <div>{children}</div> }
-        {!user && <Navigate to="/login"></Navigate>}
+    const location = useLocation()
+    console.log(location);
+  // return (
+  //   <>
         
-    </>
-  )
+  //   </>
+  // )
+  if(user?.email){
+    return <div>{children}</div>
+  }
+  // user && return;
+  return <Navigate to="/login" state={location.pathname} replace></Navigate>
+  // if(!user){
+  // }
+  // !user && return 
 }
 
 PrivateRoute.propTypes = {

@@ -1,17 +1,23 @@
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { BsGithub } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { AuthContexts } from "../components/context/AuthContext";
 import { app } from "../firebase.config";
 
 
 function Login() {
-    const {signInUser} =  AuthContexts();
+    const {handleGoogleSignIn, handleGithubSignIn, signInUser} =  AuthContexts();
     const auth = getAuth(app);
     const [showPassword, setShowPassword] = useState(false);
     const userEmail = useRef()
+    const location = useLocation();
+    const navigation = useNavigate();
+
+    console.log(location)
 
     const handleShowPassword = ()=> {
         setShowPassword(!showPassword);
@@ -26,9 +32,17 @@ function Login() {
 
         
 
-        signInUser(email, password)
+        signInUser(email, password, location?.state, navigation)
 
     }
+    const googleSignIn = ()=> {
+        handleGoogleSignIn(location?.state, navigation)
+    }
+
+    const githubSignIn = ()=> {
+        handleGithubSignIn(location?.state, navigation)
+    }
+
     const handleResetPassword = ()=> {
 
         const email = userEmail.current.value;
@@ -39,6 +53,18 @@ function Login() {
         <div className="hero min-h-screen bg-base-200">
         <ToastContainer />
             <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="flex flex-col gap-4 text-5xl p-6 text-left">
+                    <button onClick={googleSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-2 items-center">
+                        <FcGoogle className='text-4xl' />
+                        Continue With Google
+                    </button>
+                    <button onClick={githubSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 gap-2 flex items-center ">
+                        <BsGithub className='text-4xl' />
+                        Continue With Github
+                    </button>
+                    {/* <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" /> */}
+                </div>
+                <span className='text-3xl font-bold'>OR</span>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleSignInUser}>

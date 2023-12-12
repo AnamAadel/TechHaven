@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import { BsGithub } from 'react-icons/bs';
-import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContexts } from "../components/context/AuthContext";
 
@@ -10,6 +8,8 @@ import { AuthContexts } from "../components/context/AuthContext";
 function Register() {
     const {handleGoogleSignIn, handleGithubSignIn, createUser} =  AuthContexts();
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const navigation = useNavigate();
 
     const handleCreateUser = (e)=> {
         e.preventDefault()
@@ -43,23 +43,12 @@ function Register() {
         console.log(showPassword)
 
     }
+
+    
     return (
         <div className="hero min-h-screen bg-base-200">
         <ToastContainer />
             <div className="hero-content flex-col lg:flex-row-reverse">
-
-                <div className="flex flex-col gap-4 text-5xl p-6 text-left">
-                    <button onClick={handleGoogleSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-2 items-center">
-                        <FcGoogle className='text-4xl' />
-                        Continue With Google
-                    </button>
-                    <button onClick={handleGithubSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 gap-2 flex items-center ">
-                        <BsGithub className='text-4xl' />
-                        Continue With Github
-                    </button>
-                    {/* <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" /> */}
-                </div>
-                <span className='text-3xl font-bold'>OR</span>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>
